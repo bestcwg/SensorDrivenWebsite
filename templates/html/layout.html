@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Exam assignment4</title>
+    <link rel="stylesheet" href="{{config['prefix']}}/static/style/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>
+    {% block scriptSrc %}
+    {% endblock %}
+    </head>
+    <body>
+        <nav>
+            <!--Menu bar-->
+            {% set menu_bar = [
+                ('./home', 'home', 'Frontpage'),
+                ('./measurements', 'measurements', 'Datapage'),
+            ] -%}
+            {% set active_page = active_page|default('home') -%}
+            <ul>
+                {% for href, id, caption in menu_bar %}
+                <li><a {% if id == active_page %} class="active" {% endif %} href="{{ href|e }}"><h2>{{ caption|e }}</h2></a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% block content %}{% endblock %}
+    </body>
+</html>

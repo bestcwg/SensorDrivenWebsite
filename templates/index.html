@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "/html/layout.html" %}
+{% set active_page = "home" %}
+
+{% block scriptSrc %}
+    <script defer src="{{config['prefix']}}/static/js/frontpage.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="wrapper">
+    <div class="latestbox">
+      <h1>Latest measurements from M5Stick</h1>
+      <div id="latest">
+        {% if not latest %}
+          <span>No measurements found in database</span><br>
+        {% else %}
+          <span>Date: {{ latest['date'] }} Temperatur: {{ latest['temp'] }} Humidity: {{ latest['hum'] }} Air pressure: {{ latest['pres'] }}</span><br>
+        {% endif %}
+      </div>
+    </div>
+    <div class="minmaxbox">
+      <h1>Min and max measurements</h1>
+      <h2>Temperatur</h2>
+      <div id="min_max_temp">
+        {% if not min_max %}
+          <span>No data</span><br>
+        {% else %}
+          <span><h3>Min:</h3> Date: {{ min_max[0]['date'] }} temperatur: {{ min_max[0]['MIN(temp)'] }}</span><br>
+          <span><h3>Max:</h3> Date: {{ min_max[1]['date'] }} temperatur: {{ min_max[1]['MAX(temp)'] }}</span><br>
+        {% endif %}
+      </div>
+      <h2>Humidity</h2>
+      <div id="min_max_hum">
+        {% if not min_max %}
+          <span>No data</span><br>
+        {% else %}
+          <span><h3>Min:</h3> Date: {{ min_max[2]['date'] }} humidity: {{ min_max[2]['MIN(hum)'] }}</span><br>
+          <span><h3>Max:</h3> Date: {{ min_max[3]['date'] }} humidity: {{ min_max[3]['MAX(hum)'] }}</span><br>
+        {% endif %}
+      </div>
+      <h2>Air pressure</h2>
+      <div id="min_max_pres">
+        {% if not min_max %}
+          <span>No data</span><br>
+        {% else %}
+          <span><h3>Min:</h3> Date: {{ min_max[4]['date'] }} air pressure: {{ min_max[4]['MIN(pres)'] }} </span><br>
+          <span><h3>Max:</h3> Date: {{ min_max[5]['date'] }} air pressure: {{ min_max[5]['MAX(pres)'] }}</span><br>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

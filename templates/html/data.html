@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "/html/layout.html" %}
+{% set active_page = "measurements" %}
+
+{% block scriptSrc %}
+    <script defer src="{{config['prefix']}}/static/js/secondarypage.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h1>Measurements from database</h1>
+        <table id="data"> 
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Temperatur</th>
+                    <th>Humidity</th>
+                    <th>Air pressure</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <input type="button" id="previous" onclick="previousPage()" value="previous" />
+        <input type="button" id="next" onclick="nextPage()" value="next" />
+    </div>
+{% endblock %}

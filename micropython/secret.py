@@ -1,0 +1,1 @@
+WIFI = {"ap": "Write your wifi name here", "pw": "Write password for wifi here"}
