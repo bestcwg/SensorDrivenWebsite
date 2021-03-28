@@ -88,7 +88,7 @@ function updatePage(data) {
         numberOfPages = currentPage;
     } 
     if (list.length == 20) {
-        numberOfPages++;
+        numberOfPages = currentPage + 1;
     }
     if (list.length == 0 & currentPage == 1) {
         dataTable.innerHTML =
