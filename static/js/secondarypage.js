@@ -52,7 +52,6 @@ function onConnectionLost(responseObject) {
 // Called when a message arrives
 function onMessageArrived(message) {
     const payload = message.payloadString;
-    const data = JSON.parse(payload);
     if (message.destinationName.endsWith("/data")) {
         fetchData(currentPage);
         console.log("onMessageArrived: " + payload);

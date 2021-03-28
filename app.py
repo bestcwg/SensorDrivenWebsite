@@ -22,19 +22,13 @@ def index():
 
 @app.route("/measurements")
 def measurements():
-    data = db.get_all_measurements()
-    return render_template("html/data.html", config = __CONFIG, data=data)
+    return render_template("html/data.html", config = __CONFIG)
 
 @app.route("/measurements_by_page/<int:page>", methods=["GET"])
 def measurements_by_page(page):
     if request.method == "GET":
         offset = (page - 1) * 20
         return jsonify(db.get_data(offset))
-
-@app.route("/get_all_measurements", methods=["GET"])
-def get_all_measurements():
-    if request.method == "GET":
-        return jsonify(db.get_all_measurements())
 
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
