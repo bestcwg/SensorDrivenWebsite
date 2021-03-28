@@ -5,6 +5,7 @@ var numberOfPages = 0;
 
 let client;
 
+fetchData(currentPage);
 startConnect();
 
 // Called after form input is processed
@@ -67,10 +68,10 @@ function fetchData(page) {
   
     // When request is loaded
     request.onload = () => {
-      if (request.status === 200) {
-        // Get data - add to graph and table
-        updatePage(request.responseText);
-      }
+        if (request.status === 200) {
+            // Get data - add to graph and table
+            updatePage(request.responseText);
+        }
     };
   
     // Setup and send request
@@ -88,7 +89,7 @@ function updatePage(data) {
     if (list.length < 20) {
         numberOfPages = currentPage
     }
-    if (list.length == 0) {
+    if (list.length == 0 & currentPage == 1) {
         dataTable.innerHTML =
         `<tr>
             <td>No data</td>
@@ -127,13 +128,3 @@ function check() {
     document.getElementById("first").disabled = currentPage == 1 ? true : false;
     document.getElementById("last").disabled = currentPage == numberOfPages ? true : false;
 }
-
-window.onload = fetchData(currentPage);
-
-
-
-
-
-
-
-
