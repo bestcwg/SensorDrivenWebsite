@@ -63,8 +63,6 @@ function fetchData(page) {
     // Fetches data through xml request
     const request = new XMLHttpRequest();
     const requestURL = 'https://itwot.cs.au.dk/VM13/opg4a/measurements_by_page/'+page;
-    //const requestURL = 'http://192.168.86.75:6500/measurements_by_page/'+page;
-    //const requestURL = 'http://192.168.86.75:6500/get_all_measurements';
   
     // When request is loaded
     request.onload = () => {
@@ -87,7 +85,9 @@ function updatePage(data) {
     dataTable.innerHTML = "";
 
     if (list.length < 20) {
-        numberOfPages = currentPage
+        numberOfPages = currentPage;
+    } else {
+        numberOfPages = currentPage + 1;
     }
     if (list.length == 0 & currentPage == 1) {
         dataTable.innerHTML =
