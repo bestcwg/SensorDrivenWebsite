@@ -126,6 +126,4 @@ function check() {
     // checks for the buttons not to go out of bound
     document.getElementById("next").disabled = currentPage == numberOfPages ? true : false;
     document.getElementById("previous").disabled = currentPage == 1 ? true : false;
-    document.getElementById("first").disabled = currentPage == 1 ? true : false;
-    document.getElementById("last").disabled = currentPage == numberOfPages ? true : false;
 }
