@@ -62,8 +62,8 @@ function onMessageArrived(message) {
 function fetchData(page) {
     // Fetches data through xml request
     const request = new XMLHttpRequest();
-    //const requestURL = 'itwot.cs.au.dk/VM31/opg4a/someData';
-    const requestURL = 'http://192.168.86.75:6500/measurements_by_page/'+page;
+    const requestURL = 'http://itwot.cs.au.dk/VM13/opg4a/measurements_by_page'+page;
+    //const requestURL = 'http://192.168.86.75:6500/measurements_by_page/'+page;
     //const requestURL = 'http://192.168.86.75:6500/get_all_measurements';
   
     // When request is loaded
